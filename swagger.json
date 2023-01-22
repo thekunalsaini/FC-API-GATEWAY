@@ -1,0 +1,700 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Online Transfer Services Management",
+    "description": "Online Transfer Services Microservice architecture",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Online Transfer Services",
+      "description": "API for Online Transfer Services in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    
+    "/users/signin": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "signin user in system",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
+          }
+        ]
+      } 
+    },
+    "/users/signup": {
+      "post": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "get signup user in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/signup"
+              }
+            }
+          }
+        }
+    },
+    "/users/admin/data": {
+      "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "get all user data by admin",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/data"
+              }
+            }
+          }
+        }
+    },
+    "/users/data/:id": {
+      "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "get user data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/data/:id"
+              }
+            }
+          }
+        }
+    },
+    "/users/dataupi/:upi": {
+      "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "get user data upi in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/dataupi/:upi"
+              }
+            }
+          }
+        }
+    },
+    "/users/addmoney/:id": {
+      "put": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "put => add money to user in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/addmoney/:id"
+              }
+            }
+          }
+        }
+    },
+    "/users/admin/user/:id": {
+      "delete": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "delete  user in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/user/:id"
+              }
+            }
+          }
+        }
+    },
+    "/admin/signinadmin": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "post all admin in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
+          }
+        }
+      }
+    },
+    "/admin/signupadmin": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "post all admin in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/signup"
+            }
+          }
+        }
+      }
+    },
+    "/upi/upitransfer": {
+      "post": {
+        "tags": [
+          "upi"
+        ],
+        "description": "upi transfer with in system",
+        "parameters": [
+          {
+            "name": "upi",
+            "in": "body",
+            "description": "upi transfer with in system",
+            "schema": {
+              "$ref": "#/definitions/upitransfer"
+            }
+          }
+        ]
+      } 
+    },
+    "/upi/admin/historyupi": {
+      "get": {
+          "tags": [
+            "upi"
+          ],
+          "summary": "get all history data of upi by admin",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/history"
+              }
+            }
+          }
+        }
+    },
+    "/upi/upitransfer/:id": {
+      "get": {
+          "tags": [
+            "upi"
+          ],
+          "summary": "get upitransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/upitransfer/:id"
+              }
+            }
+          }
+        }
+    },
+    "/upi/admin/upitransfer/:id": {
+      "delete": {
+          "tags": [
+            "upi"
+          ],
+          "summary": "delete upitransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/upitransfer/:id"
+              }
+            }
+          }
+        }
+    },
+    "/neft/nefttransfer": {
+      "post": {
+        "tags": [
+          "neft"
+        ],
+        "description": "neft transfer with in system",
+        "parameters": [
+          {
+            "name": "neft",
+            "in": "body",
+            "description": "neft transfer with in system",
+            "schema": {
+              "$ref": "#/definitions/nefttransfer"
+            }
+          }
+        ]
+      } 
+    },
+    "/neft/admin/historyneft": {
+      "get": {
+          "tags": [
+            "neft"
+          ],
+          "summary": "get all history data of neft by admin",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/history"
+              }
+            }
+          }
+        }
+    },
+    "/neft/nefttransfer/:id": {
+      "get": {
+          "tags": [
+            "neft"
+          ],
+          "summary": "get nefttransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/nefttransfer/:id"
+              }
+            }
+          }
+        }
+    },
+    "/neft/admin/nefttransfer/:id": {
+      "delete": {
+          "tags": [
+            "neft"
+          ],
+          "summary": "delete nefttransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/nefttransfer/:id"
+              }
+            }
+          }
+        }
+    },
+    "/imps/impstransfer": {
+      "post": {
+        "tags": [
+          "imps"
+        ],
+        "description": "imps transfer with in system",
+        "parameters": [
+          {
+            "name": "imps",
+            "in": "body",
+            "description": "imps transfer with in system",
+            "schema": {
+              "$ref": "#/definitions/impstransfer"
+            }
+          }
+        ]
+      } 
+    },
+    "/imps/admin/historyimps": {
+      "get": {
+          "tags": [
+            "imps"
+          ],
+          "summary": "get all history data of imps by admin",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/history"
+              }
+            }
+          }
+        }
+    },
+    "/imps/impstransfer/:id": {
+      "get": {
+          "tags": [
+            "imps"
+          ],
+          "summary": "get impstransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/impstransfer/:id"
+              }
+            }
+          }
+        }
+    },
+    "/imps/admin/impstransfer/:id": {
+      "delete": {
+          "tags": [
+            "imps"
+          ],
+          "summary": "delete impstransfer data by id in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/admin/impstransfer/:id"
+              }
+            }
+          }
+        }
+    }
+  },
+  "definitions": {
+    "signup": {
+      "required": [
+        "username",
+        "password",
+        "email"
+      ],
+      "properties": {
+        "username": {
+          "type": "String",
+          "required": true
+        },
+        "password": {
+          "type": "String",
+          "required": true
+        },
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "signin": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "String",
+          "required": true
+        },
+        "password": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "admin/data": {
+      "required": [
+        "username",
+        "password",
+        "email"
+      ],
+      "properties": {
+        "username": {
+          "type": "String",
+          "required": true
+        },
+        "password": {
+          "type": "String",
+          "required": true
+        },
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "data/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "dataupi/:upi": {
+      "required": [
+        "upi"
+      ],
+      "properties": {
+        "upi": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "addmoney/:id": {
+      "required": [
+        "id",
+        "password"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "admin/user/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "signupadmin": {
+      "required": [
+        "username",
+        "password",
+        "email"
+      ],
+      "properties": {
+        "username": {
+          "type": "String",
+          "required": true
+        },
+        "password": {
+          "type": "String",
+          "required": true
+        },
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "signinadmin": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "String",
+          "required": true
+        },
+        "password": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "upitransfer": {
+      "required": [
+        "sender",
+        "receiver",
+        "transamount"
+      ],
+      "properties": {
+        "sender": {
+          "type": "String",
+          "required": true
+        },
+        "receiver": {
+          "type": "String",
+          "required": true
+        },
+        "transamount": {
+          "type": "Number",
+          "required": true
+        }
+      }
+    },
+    "admin/historyupi": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "upitransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "admin/upitransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "nefttransfer": {
+      "required": [
+        "senderano",
+        "bankname",
+        "receiverano",
+        "ifsc",
+        "transamount"
+      ],
+      "properties": {
+        "senderano" : {
+          "type" : "mongoose.Schema.Types.ObjectId",
+          "ref": "User"
+      },
+      "bankname" : {
+          "type" : "String",
+          "required": true
+      },
+      "receiverano" : {
+          "type" : "String",
+          "required": true
+      },
+      "ifsc" : {
+          "type" : "String",
+          "required": true
+      },
+      "transamount" : {
+          "type": "Number",
+          "required": true
+      }
+      }
+    },
+    "admin/historyneft": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "nefttransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "admin/nefttransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "impstransfer": {
+      "required": [
+        "senderano",
+        "bankname",
+        "receiverano",
+        "ifsc",
+        "transamount"
+      ],
+      "properties": {
+        "senderano" : {
+          "type" : "mongoose.Schema.Types.ObjectId",
+          "ref": "User"
+      },
+      "bankname" : {
+          "type" : "String",
+          "required": true
+      },
+      "receiverano" : {
+          "type" : "String",
+          "required": true
+      },
+      "ifsc" : {
+          "type" : "String",
+          "required": true
+      },
+      "transamount" : {
+          "type": "Number",
+          "required": true
+      }
+      }
+    },
+    "admin/historyimps": {
+      "required": [
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "impstransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    },
+    "admin/impstransfer/:id": {
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "String",
+          "required": true
+        }
+      }
+    }
+  }
+}
